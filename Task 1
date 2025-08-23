@@ -1,0 +1,45 @@
+# Simple Calculator Program
+# Created as part of my internship project with CodSoft
+
+def show_menu():
+    print("Welcome to Simple Calculator!")
+    print("Select an operation:")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (×)")
+    print("4. Division (÷)")
+
+def calculate(num1, num2, choice):
+    if choice == '1':
+        return num1 + num2
+    elif choice == '2':
+        return num1 - num2
+    elif choice == '3':
+        return num1 * num2
+    elif choice == '4':
+        # Handling division by zero
+        if num2 == 0:
+            return "Error: Cannot divide by zero!"
+        else:
+            return num1 / num2
+    else:
+        return "Invalid operation selected."
+
+def main():
+    show_menu()
+    
+    # Getting user inputs
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        choice = input("Enter your choice (1/2/3/4): ")
+        
+        result = calculate(num1, num2, choice)
+        
+        print("Result:", result)
+    except ValueError:
+        print("Invalid input! Please enter numeric values.")
+
+# Running the calculator
+if __name__ == "__main__":
+    main()
